@@ -1,35 +1,43 @@
 #!/usr/bin/env python3
-#
-# Demonstrate sending FSN tokens from one account to another
+"""
+ Demonstrate sending FSN tokens from one account to another
+"""
 #
 #
 import os
 import sys
-from getpass import getpass
+#import pdb ; pdb.set_trace()
+
 
 
 #web3fusion
 from  web3.fusion import Fsn
 
+#   Remember to set your environment variables to run this test
+#    e.g. export FSN_PRIVATE_KEY=123456789123456789ABCDEF 
+
+
+
 linkToChain = {
-    'network'     : 'testnet',     # One of 'testnet', or 'mainnet'
-    'provider'    : 'WebSocket',   # One of 'WebSocket', 'HTTP', or 'IPC'
-    'gateway'     : 'wss://testnetpublicgateway1.fusionnetwork.io:10001',
-    #'gateway'     : 'wss://testnetpublicgateway1.fusionnetwork.io:10001',
-    #'gateway'     : 'http://testnetpublicgateway1.fusionnetwork.io:10000',
+    'network'     : 'testnet',                          # One of 'testnet', or 'mainnet'
+    'provider'    : 'HTTP',                             # One of 'WebSocket', 'HTTP', or 'IPC'
+    'gateway'     : 'default',                          # Either set to 'default', or specify your uri endpoint
+    'private_key'     : os.environ["FSN_PRIVATE_KEY"],  # Do not include (comment out) for just read, or signed raw transactions
 }
+
+#
 
 web3fsn = Fsn(linkToChain)
 
+#pdb.set_trace()
+
+if not web3fsn.isConnected():
+    raise (
+        'Did not connect to gateway ',
+        linkToChain['gateway']
+    )
+
 #
-#
-# Don't leave a private key hardcoded, so you could use an environmental variable to store it
-#
-try:  
-   private_key_sender = os.environ["FSN_PRIVATE_KEY"]
-except KeyError: 
-   print('Set environment variable FSN_PRIVATE_KEY to be private key of sending wallet (without 0x prefix)')
-   sys.exit(1)
 
 
 pub_key_sender = "0x7fbFa5679411a97bb2f73Dd5ad01Ca0822FaD9a6"
@@ -37,15 +45,6 @@ pub_key_receiver = "0xaa8c70e134a5A88aBD0E390F2B479bc31C70Fee1"
 
 
 
-# Unlock account
-#
-#unlockDuration = 2
-#
-#password = getpass('Password: ')
-#
-#res = web3fsn.geth.personal.unlockAccount(pub_key_sender, password, unlockDuration)
-
-#print(res)
 
 value = web3fsn.toWei(0.02,'ether')    # How much FSN are we sending?
 
@@ -65,16 +64,9 @@ transaction = {
 tx = web3fsn.fill_tx_defaults(transaction)
 
 #print(tx)
-
-# Sign the transaction if you want to send a raw transaction. No need for an unsigned transaction
-
-signed_tx = web3fsn.account.sign_transaction(tx,private_key_sender)
-
-# Send the raw transaction (i.e. signed)
-TxHash = web3fsn.sendRawTransaction(signed_tx.rawTransaction)
 #
-# Or send an unsigned transaction (open wallet with unlockAccount above first)
-#TxHash = web3fsn.fsn.sendTransaction(tx)
+# Send an unsigned transaction 
+TxHash = web3fsn.sendTransaction(tx)
 #
 print('TxHash = ',web3fsn.toHex(TxHash))
 #

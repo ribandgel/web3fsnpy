@@ -104,7 +104,7 @@ from eth_utils.curried import (
     apply_one_of_formatters,
 )
 
-from eth_account._utils.transactions import (
+from eth_account._utils.legacy_transactions import (
     ChainAwareUnsignedTransaction,
     strip_signature,
     chain_id_to_v,

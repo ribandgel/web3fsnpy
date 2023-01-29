@@ -47,7 +47,7 @@ with open("README.md", "r") as fh:
             "requests==2.22.0",
             "rlp==2.0.1",
             "six==1.12.0",
-            "toolz==0.10.0",
+            "toolz==0.12.0",
             "urllib3==1.25.6",
             "varint==1.0.2",
             "web3==5.11.1",

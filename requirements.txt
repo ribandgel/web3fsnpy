@@ -1,5 +1,4 @@
-attrdict==2.0.1
-attrs==19.1.0
+attrs==22.2.0
 base58==1.0.3
 bitarray==1.2.2
 certifi==2019.9.11

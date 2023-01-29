@@ -233,16 +233,16 @@ class Fsn(web3.eth.Eth):
         if linkToChain['gateway'] == 'default':
             if linkToChain['network'] == 'testnet':
                 if linkToChain['provider'] == 'WebSocket':
-                    linkToChain['gateway'] = 'wss://testnetpublicgateway1.fusionnetwork.io:10001'
+                    linkToChain['gateway'] = 'wss://testnet.fusionnetwork.io'
                 elif linkToChain['provider'] == 'HTTP':
-                    linkToChain['gateway'] = 'https://testnetpublicgateway1.fusionnetwork.io:10000/'
+                    linkToChain['gateway'] = 'https://testnet.fusionnetwork.io'
                 elif linkToChain['provider'] == 'IPC':
                     raise TypeError('Error: Cannot specify a default gateway for IPC')
             elif linkToChain['network'] == 'mainnet':
                 if linkToChain['provider'] == 'WebSocket':
-                    linkToChain['gateway'] = 'wss://mainnetpublicgateway1.fusionnetwork.io:10001'
+                    linkToChain['gateway'] = 'wss://mainnet.fusionnetwork.io'
                 elif linkToChain['provider'] == 'HTTP':
-                    linkToChain['gateway'] = 'https://mainnetpublicgateway1.fusionnetwork.io:10000/'
+                    linkToChain['gateway'] = 'https://mainnet.fusionnetwork.io'
                 elif linkToChain['provider'] == 'IPC':
                     linkToChain['gateway'] = '/home/root/fusion-node/data/efsn.ipc'
         

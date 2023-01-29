@@ -23,7 +23,7 @@ with open("README.md", "r") as fh:
             "certifi==2019.9.11",
             "chardet==3.0.4",
             "cytoolz==0.10.1",
-            "eth-abi==2.0.0",
+            "eth-abi==3.0.1",
             "eth-hash==0.2.0",
             "eth-keyfile==0.5.1",
             "eth-keys==0.2.4",

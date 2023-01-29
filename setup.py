@@ -21,7 +21,7 @@ with open("README.md", "r") as fh:
             "attrs==22.2.0",
             "base58==1.0.3",
             "bitarray==1.2.2",
-            "certifi==2019.9.11",
+            "certifi==2022.12.7",
             "chardet==3.0.4",
             "cytoolz==0.12.1",
             "eth-abi==2.0.0",

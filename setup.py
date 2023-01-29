@@ -17,8 +17,6 @@ with open("README.md", "r") as fh:
         url="https://github.com/FUSIONFoundation/web3fsnpy",
         packages=find_packages(),
         install_requires=[
-            "attrs==19.1.0",
-            "attrdict==2.0.1",
             "base58==1.0.3",
             "certifi==2019.9.11",
             "chardet==3.0.4",
@@ -46,8 +44,8 @@ with open("README.md", "r") as fh:
             "toolz==0.10.0",
             "urllib3==1.25.6",
             "varint==1.0.2",
-            "web3==5.5.0",
-            "websockets==8.1.0",
+            "web3==5.11.0",
+            "websockets==8.1",
         ],
         setup_requires=['setuptools-markdown'],
         classifiers=[

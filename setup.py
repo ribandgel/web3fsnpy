@@ -32,7 +32,7 @@ with open("README.md", "r") as fh:
             "eth-rlp==0.2.1",
             "eth-typing==2.3.0",
             "eth-utils==1.9.5",
-            "hexbytes==0.2.0",
+            "hexbytes==0.3.0",
             "idna==2.8",
             "ipfshttpclient==0.4.12",
             "jsonschema==3.0.2",

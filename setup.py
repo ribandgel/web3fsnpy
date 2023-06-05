@@ -28,7 +28,7 @@ with open("README.md", "r") as fh:
             "eth-account==0.5.6",
             "eth-hash==0.2.0",
             "eth-keyfile==0.5.1",
-            "eth-keys==0.2.4",
+            "eth-keys==0.4.0",
             "eth-rlp==0.2.1",
             "eth-typing==2.3.0",
             "eth-utils==1.9.5",

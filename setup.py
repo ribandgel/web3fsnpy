@@ -36,7 +36,7 @@ with open("README.md", "r") as fh:
             "idna==2.8",
             "ipfshttpclient==0.4.12",
             "jsonschema==3.0.2",
-            "lru-dict==1.1.6",
+            "lru-dict==1.1.8",
             "multiaddr==0.0.8",
             "netaddr==0.7.19",
             "parsimonious==0.8.1",
